@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>Star</title>
+<title>Staries #1 ~ Staries = Stars + stories</title>
 <meta charset=utf-8 >
 <meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
 </head>
@@ -19,7 +19,19 @@
 	function init() {
 		var geometry, material;
 
-		document.body.style.cssText = 'font: 600 12pt monospace; margin: 0; overflow: hidden' ;
+		css = document.body.appendChild( document.createElement('style') );
+		var col1 = "#" + Math.random().toString(16).slice(2, 8);
+		var col2 = "#" + Math.random().toString(16).slice(2, 8);
+		var col3 = "#" + Math.random().toString(16).slice(2, 8);
+		var X = ( Math.random() * window.innerWidth ).toFixed(0);
+		var Y = (Math.random() * window.innerHeight).toFixed(0);
+		var center =  20 + (Math.random() * 60).toFixed(0);
+
+		css.innerHTML = 'body { color: #fff; font: 600 14pt monospace; margin: 0; height: 1000px; overflow: hidden; ' +
+			'background: -webkit-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
+		'';
 
 		info = document.body.appendChild( document.createElement( 'div' ) );
 
