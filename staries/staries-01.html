@@ -52,6 +52,7 @@
 		camera.position.set( 100, 100, 100 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
+		container = new THREE.Object3D();
 		geometry = new THREE.SphereGeometry( 50, 30, 30 );
 		material = new THREE.MeshNormalMaterial( { opacity: 0.8, shading: THREE.SmoothShading, tranaparent: true });
 		mesh = new THREE.Mesh( geometry, material );

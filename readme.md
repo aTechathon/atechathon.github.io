@@ -13,8 +13,8 @@ Staries #1
 The blogging has begun...
 
 
-<!--
 ## Concept
+
 ### Mission 
 <!-- a statement of a rationale, applicable now as well as in the future  -->
 * Investigate walls, floors and openings on terrains
