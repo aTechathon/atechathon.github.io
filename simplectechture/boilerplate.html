@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Boilerplate</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script src=http://mrdoob.github.com/three.js/build/three.min.js></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js></script>
+<script src=boilerplate.js ></script>
+<script>
+
+	var renderer, scene, camera, controls, stats;
+	
+	var info, palm, fingers = [];
+	
+	var clock = new THREE.Clock();
+	var oFrame;
+	var delta = 0, x, y;
+
+	init();
+	animate();
+
+	function init() {
+		var css, light, geometry, material, mesh;
+		
+		css = document.body.appendChild( document.createElement('style') );
+		var col1 = "#" + Math.random().toString(16).slice(2, 8);
+		var col2 = "#" + Math.random().toString(16).slice(2, 8);
+		var col3 = "#" + Math.random().toString(16).slice(2, 8);
+		var X = ( Math.random() * window.innerWidth ).toFixed(0);
+		var Y = (Math.random() * window.innerHeight).toFixed(0);
+		var center =  20 + (Math.random() * 60).toFixed(0);
+
+		css.innerHTML = 'body { color: #888; font: 600 14pt monospace; margin: 0; height: 1000px; overflow: hidden; text-align: center; ' +
+			'background: -webkit-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
+		'';
+		
+		info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'position: absolute; width: 100%; ';
+		info.txt = '<h1>' + document.title + '</h1>' +
+		'';
+		
+// Three.js Basics
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff } );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.shadowMapEnabled = true;
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.set( 400, 20, 100 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; top: 0px; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+// ambient
+		scene.add( new THREE.AmbientLight( 0x444444 ) );
+		
+// light
+		var light = new THREE.PointLight( 0xffffff, 1 );
+		light.position = camera.position;
+		scene.add( light );
+
+// Ground plane
+		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
+		geometry = new THREE.PlaneGeometry( 400, 400, 100, 100 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( 40, -69, 0 );
+		mesh.castShadow = true;
+		mesh.receiveShadow = true;
+		scene.add( mesh );
+		
+		for (var i = 0, vtx, dis, len = mesh.geometry.vertices.length; i < len; i++) {
+			vtx = mesh.geometry.vertices[i];
+			dis = vtx.distanceTo( v( 0, -69, 0 ) );
+			if (  dis > 150 ) {
+				vtx.y = 300 - 2 * dis - 80 * Math.random();
+			}
+		}
+		mesh.scale.x = 1.2;
+		mesh = mesh.clone();
+		mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+		scene.add( mesh );
+
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+	}
+
+	function v( x, y, z ){ return new THREE.Vector3( x, y, z ); }
+</script>
+</body>
+</html>

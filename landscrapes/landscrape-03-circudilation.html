@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Landscrape #3 ~ circuDilation = circles + circulation + dilation</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script src=http://mrdoob.github.com/three.js/build/three.min.js></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js></script>
+<script>
+
+	var renderer, scene, camera, controls, stats;
+	var clock = new THREE.Clock();
+	var delta = 0;
+
+	var landscrape;
+
+	init();
+	animate();
+
+	function init() {
+		var css = document.body.appendChild( document.createElement('style') );
+		var col1 = "#" + Math.random().toString(16).slice(2, 8);
+		var col2 = "#" + Math.random().toString(16).slice(2, 8);
+		var col3 = "#" + Math.random().toString(16).slice(2, 8);
+		var X = ( Math.random() * window.innerWidth ).toFixed(0);
+		var Y = (Math.random() * window.innerHeight).toFixed(0);
+		var center =  20 + (Math.random() * 60).toFixed(0);
+
+		css.innerHTML = 'body { color: #fff; font: 600 14pt monospace; margin: 0; height: 1000px; overflow: hidden; ' +
+			'background: -webkit-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
+		'';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'position: absolute; ';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+		'';
+
+// Three.js Basics
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff } );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.set( 500, 100, 250 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+// landscrape
+		var geometry = new THREE.PlaneGeometry( 500, 500, 100, 100 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
+		var material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
+
+		landscrape = new THREE.Mesh( geometry, material );
+		scene.add( landscrape );
+
+		landscrape = landscrape.clone();
+		landscrape.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+		scene.add( landscrape );
+	}
+
+	function circuDilation( point, radius, height ) {
+		var verts = landscrape.geometry.vertices;
+		for ( var x = 0; x < 100; x++ ) {
+			for ( var y = 0; y < 100; y++ ) {
+				if (  point.distanceTo( v( x, 0, y ) )  < radius ) {
+					verts[ y * 101 + x ].y = height;
+				}
+			}
+		} 
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+		
+		delta += clock.getDelta();
+		if ( delta > 1.0 ) {
+			delta = 0;
+			var point = v( 100 * Math.random(), 0, 100 * Math.random() );
+			var radius = 50 * Math.random();
+			var height = 30 * Math.random();
+			circuDilation( point, radius,  height );
+			landscrape.geometry.verticesNeedUpdate = true;  
+		}
+	}
+
+	function v( x, y, z ){ return new THREE.Vector3( x, y, z ); }
+</script>
+</body>
+</html>
