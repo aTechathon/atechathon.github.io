@@ -12,20 +12,16 @@
 <script>
 
 	var renderer, scene, camera, controls, stats;
-	
-	var info, palm, fingers = [];
-	
+	var container = new THREE.Object3D();
+
 	var clock = new THREE.Clock();
-	var oFrame;
-	var delta = 0, x, y;
+	var delta = 0;
 
 	init();
 	animate();
 
 	function init() {
-		var css, light, geometry, material, mesh;
-		
-		css = document.body.appendChild( document.createElement('style') );
+		var css = document.body.appendChild( document.createElement('style') );
 		var col1 = "#" + Math.random().toString(16).slice(2, 8);
 		var col2 = "#" + Math.random().toString(16).slice(2, 8);
 		var col3 = "#" + Math.random().toString(16).slice(2, 8);
@@ -38,45 +34,34 @@
 			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
 			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
 		'';
-		
-		info = document.body.appendChild( document.createElement( 'div' ) );
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
 		info.style.cssText = 'position: absolute; left: 10px;';
 		info.innerHTML = '<h1>' + document.title + '</h1>' +
 		'';
-		
+
 // Three.js Basics
 		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff } );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.shadowMapEnabled = true;
 		document.body.appendChild( renderer.domElement );
 		scene = new THREE.Scene();
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 3000 );
-		camera.position.set( 400, 20, 100 );
+		camera.position.set( 400, 30, 100 );
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
 		stats = new Stats();
 		stats.domElement.style.cssText = 'position: absolute; right: 0; zIndex: 100; ';
 		document.body.appendChild( stats.domElement );
 
-// ambient
-		scene.add( new THREE.AmbientLight( 0x444444 ) );
-		
-// light
-		var light = new THREE.PointLight( 0xffffff, 1 );
-		light.position = camera.position;
-		scene.add( light );
-
 // Ground plane
-		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
+		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
 		geometry = new THREE.PlaneGeometry( 400, 400, 100, 100 );
 		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.set( 40, 0, 0 );
-		mesh.castShadow = true;
-		mesh.receiveShadow = true;
-		scene.add( mesh );
-		
+		container.add( mesh );
+
 		for (var i = 0, vtx, dis, len = mesh.geometry.vertices.length; i < len; i++) {
 			vtx = mesh.geometry.vertices[i];
 			dis = vtx.distanceTo( v( 0, 0, 0 ) );
@@ -86,31 +71,31 @@
 		}
 		mesh.scale.x = 3.2;
 		mesh = mesh.clone();
-		mesh.material = new THREE.MeshLambertMaterial( { wireframe: true } );
-		scene.add( mesh );
+		mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+		container.add( mesh );
 
 
 		geometry = new THREE.BoxGeometry( 400, 10, 200 );
-		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
+		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.set( 0, 5, 0 );
-		scene.add( mesh );
+		container.add( mesh );
 
 		mesh = mesh.clone();
 		mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
-//		scene.add( mesh );
+		container.add( mesh );
 
 		geometry = new THREE.BoxGeometry( 400, 10, 200 );
-		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
+		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.rotation.y = 0.1;
 		mesh.position.set( 20, 2, 3);
 		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff, wireframe: false } );
-		scene.add( mesh );
+		container.add( mesh );
 
 		mesh = mesh.clone();
 		mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
-//		scene.add( mesh );
+		container.add( mesh );
 
 		geometry = new THREE.BoxGeometry( 400, 10, 200 );
 		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
@@ -118,28 +103,33 @@
 		mesh.rotation.y = -0.15;
 		mesh.position.set( 50, -2, 13);
 		material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff, wireframe: false } );
-		scene.add( mesh );
+		container.add( mesh );
 
 		mesh = mesh.clone();
 		mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
-//		scene.add( mesh );
+		container.add( mesh );
 
 // CylinderGeometry( radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded )
 
 		for (var i = 0; i < 3; i++) {
 			var height = 150 * Math.random() + 100;
 			geometry = new THREE.CylinderGeometry( 0, 20, height, 3, 1 );
-			material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
+			material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
 			mesh = new THREE.Mesh( geometry, material );
 			mesh.rotation.y = 3 * Math.random();
 			mesh.position.set( 400 * Math.random() - 200, 0.5 * height, 200 * Math.random() - 100);
 			material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff, wireframe: false } );
-			scene.add( mesh );
+			container.add( mesh );
+
+			mesh = mesh.clone();
+			mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+			container.add( mesh );
 		}
-		var x, z;
+
+		var x, y, z;
 		for (var i = 0; i < 500; i++) {
 			geometry = new THREE.BoxGeometry( 10, 10, 10 );
-			material = new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff } );
+			material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
 			mesh = new THREE.Mesh( geometry, material );
 
 			x = 400 * Math.random() - 200;
@@ -147,9 +137,14 @@
 			y = 300 * Math.sin ( 0.0011 * x ) * Math.cos( 0.018 * z ) + 100;
 			mesh.position.set( x, y, z);
 			mesh.lookAt( v( 0, 300, 0 ) );
-			scene.add( mesh );
+			container.add( mesh );
+
+			mesh = mesh.clone();
+			mesh.material = new THREE.MeshBasicMaterial( { wireframe: true } );
+			container.add( mesh );
 		}
 
+		scene.add( container );
 	}
 
 	function animate() {
@@ -157,6 +152,7 @@
 		renderer.render( scene, camera );
 		controls.update();
 		stats.update();
+		container.rotation.y += 0.001
 	}
 
 	function v( x, y, z ){ return new THREE.Vector3( x, y, z ); }
