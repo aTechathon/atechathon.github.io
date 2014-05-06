@@ -8,6 +8,11 @@ There is an `iframe` here. It is not visible when viewed on github.com/atechatho
 </iframe>
 Staries #1
 
+[aTechathon on Tumblr]( http://atechathon.tumblr.com/ )
+
+The blogging has begun...
+
+
 <!--
 ## Concept
 ### Mission 
@@ -22,7 +27,7 @@ Staries #1
 * Discover some new ways of designing
 * Leave a permanent, resume-able record of what was achieved
 
-
+<!--
 ## Features
 
 
