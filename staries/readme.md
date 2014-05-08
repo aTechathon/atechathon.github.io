@@ -6,7 +6,16 @@ aTechathon Read Me
 <iframe src="http://atechathon.github.io/staries/staries-01.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com/atechathon. To view, please go to atechathon.github.io. See 'Project Links' just below.
 </iframe>
-Staries #1
+_Staries #1_
+
+
+##  Staries #1
+Draw a sphere. Select every fifth paint and scale it a random distance. And then continue to scale a point every animation frame.
+
+The trick is to use scale. It's much easier than trying to calculate a new X, Y and Z.  
+
+[Full screen demo]( http://atechathon.github.io/staries/staries-01.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/staries/staries-01.html )
 
 <!--
 ## Concept
@@ -27,19 +36,10 @@ Staries #1
 
 ## Project Links
 
-[aTechathon on Tumblr]( http://atechathon.tumblr.com/ )
-
-
-
-[AEC Technology Hackathon 2014 ]( https://www.hackerleague.org/hackathons/aec-technology-hackathon-2014/ )
-
-> Organized in parallel with the AEC Technology Symposium, the weekend-long AEC Technology Hackathon is an event for programmers, web developers, and AEC experts to collaborate on novel ideas and processes for the AEC industry. There is a great need for the building industry to start developing their own solutions and here is the chance to get started! Hackers will have a day and a half to brainstorm concepts, develop projects, and present results to a panel of industry experts. An impressive collection of Hackathon Leaders will be present to offer guidance and support for hackers throughout the competition.
-
-
 You have two ways of viewing the aTechathon files:
 
-* Web page hosted on GitHub: [atechathon.github.io]( http://atechathon.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
-* Source code on GitHub: [github.com/atechathon]( https://github.com/atechathon/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>
+* Web pages hosted on GitHub: [atechathon.github.io]( http://atechathon.github.io/staries/readme-reader.html "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
+* Source code on GitHub: [github.com/atechathon]( https://github.com/aTechathon/atechathon.github.io/tree/master/staries "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>
 
 
 ### System Requirements
