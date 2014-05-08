@@ -1,12 +1,38 @@
-aTechathon Read Me
+landScrapes Read Me
 ====
 
 ### Live Demo
 
-<iframe src="http://atechathon.github.io/staries/staries-01.html" width=100% height=500px class='overview' >
+<iframe src="http://atechathon.github.io/landscrapes/landscrape-01-squihighers.html" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com/atechathon. To view, please go to atechathon.github.io. See 'Project Links' just below.
 </iframe>
-Staries #1
+_landScrapes #1 -squiHighers_
+
+As each landScrape passes by, you can feel how the surface changes what could or should be placed up the surface at hand.
+
+How to tweak the algorithms to provoke even more interesting thoughts?
+
+
+
+
+## landScrape #3 ~ circuDilation.html
+
+Circles:  
+[landScrape #3 Full Screen Demo]( http://atechathon.github.io/landscrapes/landscrape-03-circudilation.html )  
+[Soure code]( https://github.com/aTechathon/atechathon.github.io/blob/master/landscrapes/landscrape-03-circudilation.html )
+
+## landScrape #2 ~ triLowers
+
+Triangles:  
+[landScrape #2 Full Screen Demo]( http://atechathon.github.io/landscrapes/landscrape-02-trilowers.html )  
+[Soource code]( https://github.com/aTechathon/atechathon.github.io/blob/master/landscrapes/landscrape-02-trilowers.html )
+
+
+## landScrape #1 ~ squiHighers
+
+Boxes:  
+[landScrape #1 Full Screen Demo]( http://atechathon.github.io/landscrapes/landscrape-01-squihighers.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/landscrapes/landscrape-01-squihighers.html )
 
 <!--
 ## Concept
@@ -63,6 +89,10 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are  at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
+
+2014-05-08 ~ Theo
+
+* Add read me and menu
 
 2014-05-05 ~ Theo
 

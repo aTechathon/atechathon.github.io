@@ -1,4 +1,4 @@
-[aTechathon](../index.html ) &raquo;<br>[topic]( ./index.html )
+[aTechathon](../index.html ) &raquo;<br>[Simplitechture]( ./index.html )
 ===
 
 <p id=rm >

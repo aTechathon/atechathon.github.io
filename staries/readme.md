@@ -1,4 +1,4 @@
-aTechathon Read Me
+Staries Read Me
 ====
 
 ### Live Demo
