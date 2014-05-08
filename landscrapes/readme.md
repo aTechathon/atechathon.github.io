@@ -8,26 +8,14 @@ There is an `iframe` here. It is not visible when viewed on github.com/atechatho
 </iframe>
 Staries #1
 
-[aTechathon on Tumblr]( http://atechathon.tumblr.com/ )
-
-The blogging has begun...
-
-
+<!--
 ## Concept
 
-### Mission 
-<!-- a statement of a rationale, applicable now as well as in the future  -->
-* Investigate walls, floors and openings on terrains
-* Can a dialectic between code and brain create designs that neither could create without the other?
+### Mission
 
-### Vision 
-<!--  a descriptive picture of a desired future state -->
+### Vision
 
-* Provide participants with new skills or awareness that new skills are attainable
-* Discover some new ways of designing
-* Leave a permanent, resume-able record of what was achieved
 
-<!--
 ## Features
 
 
@@ -75,11 +63,6 @@ Bugs on browsers other than Chrome need not be reported until such time as the w
 This repository contains files that are  at an early and volatile stage. Not all licensing requirements may have been fully met let alone identified. It is the intension of the authors to play fair and all such requirements will either be met or the feature in question will turned off.
 
 ### Change Log
-
-* 2014-05-07 ~ Theo
-
-* Add lots of read me stuff
-
 
 2014-05-05 ~ Theo
 
