@@ -13,4 +13,4 @@
 
 <i class="fa fa-external-link"></i> [AEC Technology Hackathon 2014 ]( https://www.hackerleague.org/hackathons/aec-technology-hackathon-2014/ )
 
-<i class="fa fa-copy"></i> [Copyright and License]( https://github.com/atechathon/atechathon/atechathon-copyright-and-mit-license.md )
+<i class="fa fa-copy"></i> [Copyright and License](https://github.com/aTechathon/atechathon.github.io/blob/master/atechathon-copyright-and-mit-license.md )
