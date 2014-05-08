@@ -11,12 +11,12 @@ _Simplitechture #1_
 
 ## Simplitechture #2
 
-[Simplitechture #2 ~ cylAnon ~ full scren demo]( http://atechathon.github.io/simplitechture/simplitechture-02-cylanon.html 
+[Simplitechture #2 ~ cylAnon ~ full scren demo]( http://atechathon.github.io/simplitechture/simplitechture-02-cylanon.html )  
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-02-cylanon.html )
 
 ## Simplitechture #1
 
-[Simplitechture #1 ~ boxAnon full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-01.html )
+[Simplitechture #1 ~ boxAnon full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-01.html )   
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-01.html )
 
 <!--

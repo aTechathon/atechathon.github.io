@@ -19,7 +19,7 @@ How to tweak the algorithms to provoke even more interesting thoughts?
 
 Circles:  
 [landScrape #3 Full Screen Demo]( http://atechathon.github.io/landscrapes/landscrape-03-circudilation.html )  
-[Soure code]( https://github.com/aTechathon/atechathon.github.io/blob/master/landscrapes/landscrape-03-circudilation.html )
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/landscrapes/landscrape-03-circudilation.html )
 
 ## landScrape #2 ~ triLowers
 
