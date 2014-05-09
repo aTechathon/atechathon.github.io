@@ -8,17 +8,25 @@ There is an `iframe` here. It is not visible when viewed on github.com/atechatho
 </iframe>
 _Simplitechture #1_
 
+
+## Simplitechture #4
+
+Walls and floors that come and go precipitously:  
+[Simplitechture #4 ~ cube maze ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-04-cube-maze.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-04-cube-maze.html )
+
+
 ## Simplitechture #3
 
 Discs:  
-[Simplitechture #3 ~ cylAnon ~ full scren demo]( http://atechathon.github.io/simplitechture/simplitechture-03-cylanon.html )  
+[Simplitechture #3 ~ cylAnon ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-03-cylanon.html )  
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-03-cylanon.html )
 
 
 ## Simplitechture #2
 
 Truncated cylinders:  
-[Simplitechture #2 ~ cylAnon ~ full scren demo]( http://atechathon.github.io/simplitechture/simplitechture-02-cylanon.html )  
+[Simplitechture #2 ~ cylAnon ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-02-cylanon.html )  
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-02-cylanon.html )
 
 ## Simplitechture #1

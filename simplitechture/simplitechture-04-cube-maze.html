@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>Simpletecture #1 ~ Cube Maze</title>
+<meta charset=utf-8 >
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
+</head>
+<body>
+<script src=http://mrdoob.github.io/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/libs/stats.min.js ></script>
+<script>
+	var info, stats, renderer, scene, camera, controls, cube;
+
+	init();
+	animate();
+
+	function init() {
+		var css = document.body.appendChild( document.createElement('style') );
+		var col1 = "#" + Math.random().toString(16).slice(2, 8);
+		var col2 = "#" + Math.random().toString(16).slice(2, 8);
+		var col3 = "#" + Math.random().toString(16).slice(2, 8);
+		var X = ( Math.random() * window.innerWidth ).toFixed(0);
+		var Y = (Math.random() * window.innerHeight).toFixed(0);
+		var center =  20 + (Math.random() * 60).toFixed(0);
+
+		css.innerHTML = 'body { color: #888; font: 600 14pt monospace; margin: 0; height: 1000px; overflow: hidden; text-align: center; ' +
+			'background: -webkit-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
+		'';
+
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'position: absolute; left: 10px;';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+		'';
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		camera.position.set( 100, 100, 100 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+// ground box
+		cube = new THREE.Object3D();
+		
+		geometry = new THREE.CylinderGeometry( 100, 200 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationZ(- Math.PI / 4 ) );
+		material = new THREE.MeshNormalMaterial();
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.y = -150;
+		cube.add( mesh );
+
+		geometry = new THREE.BoxGeometry( 14.5, 1, 10 );
+		geometry.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI / 4 ) );
+		material = new THREE.MeshNormalMaterial();
+
+		index = 0;
+		for ( var i = 0; i < 10; i++ ) {
+			for ( var j = 0; j < 10; j++ ) {
+				for ( var k = 0; k < 10; k++ ) {
+					index++;
+					if ( index % 3 === 0 ) {
+						material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff, opacity: 0.95, side: THREE.DoubleSide, transparent: true } );
+						mesh = new THREE.Mesh( geometry, material );
+						mesh.position.set( 10 * i - 30, 10 * j - 50, 10 * k - 50);
+						mesh.rotation.y = Math.floor( 2 * Math.random() ) * Math.PI;
+						scene.add( new THREE.WireframeHelper( mesh ) );
+						cube.add( mesh );
+					}
+				}
+			}
+		}
+ 		cube.rotation.z = Math.PI / 4;
+		cube.position.y = 0;
+		scene.add( cube );
+	}
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+		cube.rotation.y += 0.001;
+		var idx = 1 + Math.floor( ( cube.children.length - 1 ) * Math.random() );
+		var rot = Math.floor( 2 * Math.random() ) * Math.PI;
+		cube.children[ idx  ].rotation.y = rot
+	}
+</script>
+</body>
+</html>
