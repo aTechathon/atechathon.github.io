@@ -9,24 +9,17 @@
 <script src=http://mrdoob.github.com/three.js/build/three.min.js></script>
 <script src=http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js></script>
 <script src=http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js></script>
-<script src=boilerplate.js ></script>
 <script>
 
 	var renderer, scene, camera, controls, stats;
-	
-	var info, palm, fingers = [];
-	
-	var clock = new THREE.Clock();
-	var oFrame;
-	var delta = 0, x, y;
 
 	init();
 	animate();
 
 	function init() {
-		var css, light, geometry, material, mesh;
+		var light, geometry, material, mesh;
 		
-		css = document.body.appendChild( document.createElement('style') );
+		var css = document.body.appendChild( document.createElement('style') );
 		var col1 = "#" + Math.random().toString(16).slice(2, 8);
 		var col2 = "#" + Math.random().toString(16).slice(2, 8);
 		var col3 = "#" + Math.random().toString(16).slice(2, 8);
@@ -40,9 +33,9 @@
 			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
 		'';
 		
-		info = document.body.appendChild( document.createElement( 'div' ) );
-		info.style.cssText = 'position: absolute; width: 100%; ';
-		info.txt = '<h1>' + document.title + '</h1>' +
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'position: absolute; left: 20px; ';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
 		'';
 		
 // Three.js Basics
@@ -57,7 +50,7 @@
 		controls = new THREE.TrackballControls( camera, renderer.domElement );
 
 		stats = new Stats();
-		stats.domElement.style.cssText = 'position: absolute; top: 0px; zIndex: 100; ';
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
 		document.body.appendChild( stats.domElement );
 
 // ambient

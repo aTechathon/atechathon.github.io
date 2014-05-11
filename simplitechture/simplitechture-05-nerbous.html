@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>simplitecture #5 ~ Nerbous = NURBS + nervous</title>
+<meta charset=utf-8 />
+<meta name=author content='Theo Armour' />
+</head>
+<body>
+<script src=http://mrdoob.github.com/three.js/build/three.min.js ></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/curves/NURBSCurve.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/curves/NURBSSurface.js ></script>
+<script src=http://mrdoob.github.io/three.js/examples/js/curves/NURBSUtils.js ></script>
+<script>
+
+	var renderer, scene, camera, controls, stats;
+
+	init();
+	animate();
+
+	function init() {
+		var light, geometry, material, mesh;
+		
+		var css = document.body.appendChild( document.createElement('style') );
+		var col1 = "#" + Math.random().toString(16).slice(2, 8);
+		var col2 = "#" + Math.random().toString(16).slice(2, 8);
+		var col3 = "#" + Math.random().toString(16).slice(2, 8);
+		var X = ( Math.random() * window.innerWidth ).toFixed(0);
+		var Y = (Math.random() * window.innerHeight).toFixed(0);
+		var center =  20 + (Math.random() * 60).toFixed(0);
+
+		css.innerHTML = 'body { color: #888; font: 600 14pt monospace; margin: 0; height: 1000px; overflow: hidden; text-align: center; ' +
+			'background: -webkit-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: -moz-radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); ' +
+			'background: radial-gradient(' + X + 'px ' + Y + 'px, farthest-corner, ' + col1 + ' 0%, ' + col2 + ' 50%, ' + col3 + ' 100%); }' +
+		'';
+		
+		var info = document.body.appendChild( document.createElement( 'div' ) );
+		info.style.cssText = 'position: absolute; left: 20px; ';
+		info.innerHTML = '<h1>' + document.title + '</h1>' +
+		'';
+		
+// Three.js Basics
+		renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff } );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.shadowMapEnabled = true;
+		document.body.appendChild( renderer.domElement );
+		scene = new THREE.Scene();
+
+		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
+		camera.position.set( 500, 500, 500 );
+		controls = new THREE.TrackballControls( camera, renderer.domElement );
+
+		stats = new Stats();
+		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
+		document.body.appendChild( stats.domElement );
+
+// ambient
+		scene.add( new THREE.AmbientLight( 0x444444 ) );
+		
+// light
+		var light = new THREE.PointLight( 0xffffff, 1 );
+		light.position = camera.position;
+		scene.add( light );
+
+// Ground plane
+		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
+		geometry = new THREE.BoxGeometry( 800, 600, 2000 );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.y = -600;
+		scene.add( mesh );
+		scene.add( new THREE.WireframeHelper( mesh ) );
+		scene.add( mesh );
+
+		addNURBS( 0, 0, 0 );
+		addNURBS( 100, 0, 400 );
+		addNURBS( 50, 0, 0 );
+		addNURBS( -100, 0, -400 );
+	}
+
+	function addNURBS( x, y, z) {
+		var r = function( a, b ) { return a * Math.random() - b; };
+		var nsControlPoints = [
+			[
+				new THREE.Vector4 ( -200, 0, -200, 1 ),  // last number is the weighting
+				new THREE.Vector4 ( -200, r(600, 300), -100, 1 ),
+				new THREE.Vector4 ( -200, r(600, 300), 100, 1 ),
+				new THREE.Vector4 ( -200, r(600, 300), 200, 1 ),
+				new THREE.Vector4 ( -200, 0, 300, 1 )
+			],
+			[
+				new THREE.Vector4 ( -100, r(600, 300), -200, 1 ),
+				new THREE.Vector4 ( -100, r( 2000, 1000 ), -100, 1 ),
+				new THREE.Vector4 ( -100, r( 2000, 1000 ), 100, 1 ),
+				new THREE.Vector4 ( -100, r( 2000, 1000 ), 200, 1 ),
+				new THREE.Vector4 ( -100, r(600, 300), 300, 1 )
+			],
+			[
+				new THREE.Vector4 ( 100, r(600, 300), -200, 1 ),
+				new THREE.Vector4 ( 100, r( 2000, 1000 ), -100, 1 ),
+				new THREE.Vector4 ( 100, r( 2000, 1000 ), 100, 1 ),
+				new THREE.Vector4 ( 100, r( 2000, 1000 ), 200, 1 ),
+				new THREE.Vector4 ( 100, r(600, 300), 300, 1 )
+			],
+			[
+				new THREE.Vector4 ( 200, 0, -200, 1 ),
+				new THREE.Vector4 ( 200, r(600, 300), -100, 1 ),
+				new THREE.Vector4 ( 200, r(600, 300), 100, 1 ),
+				new THREE.Vector4 ( 200, r(600, 300), 200, 1 ),
+				new THREE.Vector4 ( 200, 0, 300, 1 )
+			]
+		];
+		
+		var degree1 = 3; // # of spaces between x control points
+		var degree2 = 4; // # spaces between y control points
+		var knots1 = [0, 0, 0, 0, 1, 1, 1, 1]; // A 0 and a 1 for each x control point
+		var knots2 = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]; // ditto for y. keep values between 0 and 1.
+		var nurbsSurface = new THREE.NURBSSurface(degree1, degree2, knots1, knots2, nsControlPoints);
+		getSurfacePoint = function(u, v) { return nurbsSurface.getPoint(u, v); };
+
+		var geometry = new THREE.ParametricGeometry( getSurfacePoint, 20, 20 );
+		var material = new THREE.MeshBasicMaterial( { color: 0xffffff * Math.random(), opacity: 0.75, side: THREE.DoubleSide, transparent: true } );
+		var mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( x, y, z );
+		scene.add( mesh );
+		scene.add( new THREE.WireframeHelper( mesh ) );
+
+// unnecessary bling
+
+		var col = 0xffffff * Math.random();
+		scene.add( new THREE.FaceNormalsHelper( mesh, -50, col ) );
+		scene.add( new THREE.FaceNormalsHelper( mesh, 50, col ) );
+		col = 0xffffff * Math.random();
+		scene.add( new THREE.VertexNormalsHelper( mesh, -50, col ) );
+		scene.add( new THREE.VertexNormalsHelper( mesh, 50, col ) );
+
+		addTrylon( x + 200, 500, z + 300);
+		addTrylon( x + 200, 500, z - 200);
+		addTrylon( x - 200, 500, z + 300);
+		addTrylon( x - 200, 500, z - 200);
+	}
+
+	function addTrylon( x, height, z ) {
+//		var height = 150 * Math.random() + 100;
+		var geometry = new THREE.CylinderGeometry( 3, 30, height, 3, 1 );
+		var material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.rotation.y = 3 * Math.random();
+		mesh.position.set( x, -0.5 * height, z );
+		scene.add( mesh );
+		scene.add( new THREE.WireframeHelper( mesh ) );
+	}
+
+
+	function animate() {
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		controls.update();
+		stats.update();
+	}
+
+	function v( x, y, z ){ return new THREE.Vector3( x, y, z ); }
+</script>
+</body>
+</html>
