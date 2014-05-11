@@ -5,7 +5,7 @@
 	<a href=JavaScript:displayPage("#readme.md#rm"); >Read Me</a>
 </p>
 
-<i class="fa fa-github"></i> [Source Code on GitHub]( https://github.com/atechathon/atechathon.github.io/athonia/ )  
+<i class="fa fa-github"></i> [Source Code on GitHub]( https://github.com/aTechathon/atechathon.github.io/tree/master/athonia )  
 <br>
 [Staries]( ../staries/index.html "stars + stories" )  
 [Landscrapes]( ../landscrapes/index.html "Earth works")  

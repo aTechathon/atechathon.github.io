@@ -52,9 +52,9 @@ Scripts are hosted on GitHub and are viewable as web pages, as described in the 
 
 There are generally three ways of looking at the aTeckathon scripts:
 
-1. [Live Demo]( http://ateckathon.github.io/.../latest/ )  
-2. [Read Me]( http://ateckathon.github.io/xxx/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
-3. [Source Code]( https://github.com/ateckathon/ateckathon.github.io/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
+1. [Live Demo]( http://ateckathon.github.io/athonia/latest/ )  
+2. [Read Me]( http://ateckathon.github.io/ateckathon/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
+3. [Source Code]( https://github.com/aTechathon/atechathon.github.io/tree/master/athonia "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
 ### System Requirements
 
