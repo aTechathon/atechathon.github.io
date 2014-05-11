@@ -11,16 +11,27 @@ _Athonia #1_
 
 ## Concept
 
-### Mission
+### Mission  <!-- a statement of a rationale, applicable now as well as in the future -->
 
-### Vision
+* A gathering place for designs
+
+### Vision  <!--  a descriptive picture of a desired future state -->
+
 
 
 ## Features
 
+* Follows the TMS system
+* Supports very targe terrains
+* JavaScript loaded only when needed
+* Everything created procedurally
+* Displays identification placards when desired
+* Displays Google satellite view when desired
+
 
 ## Road Map
 
+* callbacks with live action controlled by RAF
 
 ## Issues /Bugs
 
@@ -35,12 +46,15 @@ _Athonia #1_
 
 > Organized in parallel with the AEC Technology Symposium, the weekend-long AEC Technology Hackathon is an event for programmers, web developers, and AEC experts to collaborate on novel ideas and processes for the AEC industry. There is a great need for the building industry to start developing their own solutions and here is the chance to get started! Hackers will have a day and a half to brainstorm concepts, develop projects, and present results to a panel of industry experts. An impressive collection of Hackathon Leaders will be present to offer guidance and support for hackers throughout the competition.
 
+aTeckathon is a [GitGub]( http://github.com) [organization account]( https://help.github.com/articles/what-s-the-difference-between-user-and-organization-accounts ) and has multiple owners and admins. 
+All aTeckathon scripts are [FOSS]( https://en.wikipedia.org/wiki/Free_and_open-source_software ).
+Scripts are hosted on GitHub and are viewable as web pages, as described in the 'Read Me' files and as source code.
 
-You have two ways of viewing the aTechathon files:
+There are generally three ways of looking at the aTeckathon scripts:
 
-* Web page hosted on GitHub: [atechathon.github.io]( http://atechathon.github.io/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >  
-* Source code on GitHub: [github.com/atechathon]( https://github.com/atechathon/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>
-
+1. [Live Demo]( http://ateckathon.github.io/.../latest/ )  
+2. [Read Me]( http://ateckathon.github.io/xxx/ "view the files as apps." ) <input value="<< You are now probably here." size=28 style="font:bold 12pt monospace;border-width:0;" >   
+3. [Source Code]( https://github.com/ateckathon/ateckathon.github.io/ "View the files as source code." ) <scan style=display:none ><< You are now probably here.</scan>  
 
 ### System Requirements
 

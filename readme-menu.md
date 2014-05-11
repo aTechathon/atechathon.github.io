@@ -7,9 +7,10 @@
 
 <i class="fa fa-github"></i> [Source Code on GitHub]( https://github.com/atechathon/atechathon.github.io )  
 
-[Staries]( ./staries/index.html )  
-[Landscrapes]( ./landscrapes/index.html )  
-[Simplitechture]( ./simplitechture/index.html )  
+[Staries]( ./staries/index.html "stars + stories" )  
+[Landscrapes]( ./landscrapes/index.html "Earth works")  
+[Simplitechture]( ./simplitechture/index.html "simplified + tech + AEC" )  
+[Athonia]( ./athonia/index.html "A design gathering app" )  
 <br>
 
 <i class="fa fa-tumblr-square"></i> [atechathon.tumblr.com]( http://atechathon.tumblr.com )
