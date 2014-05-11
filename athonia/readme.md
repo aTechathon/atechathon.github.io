@@ -8,7 +8,7 @@ There is an `iframe` here. It is not visible when viewed on github.com/atechatho
 </iframe>
 _Athonia #1_
 
-2014-05-10 ~ Today there are just some dummy files foe testing. Soon there will be some 'real' files'...
+2014-05-10 ~ Today there are just some dummy files for testing. Soon there will be some 'real' files'...
 
 ## Concept
 
