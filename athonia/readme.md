@@ -1,4 +1,4 @@
-Athomia Read Me
+Athonia Read Me
 ====
 
 ### Live Demo
@@ -11,11 +11,13 @@ _Athonia #1_
 
 ## Concept
 
-### Mission  <!-- a statement of a rationale, applicable now as well as in the future -->
+### Mission  
+<!-- a statement of a rationale, applicable now as well as in the future -->
 
 * A gathering place for designs
 
-### Vision  <!--  a descriptive picture of a desired future state -->
+### Vision  
+<!--  a descriptive picture of a desired future state -->
 
 
 
