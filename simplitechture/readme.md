@@ -11,7 +11,7 @@ _Simplitechture #1_
 ## Simplitechture #5
 
 Walls and floors that come and go precipitously:  
-[Simplitechture #4 ~ Nerbous = NURBS + nervous ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-05-nervous.html )  
+[Simplitechture #4 ~ Nerbous = NURBS + nervous ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-05-nerbous.html )  
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-05-nerbous.html )
 
 [Tumbler]( )
