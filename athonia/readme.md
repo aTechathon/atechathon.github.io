@@ -6,9 +6,10 @@ Athonia Read Me
 <iframe src="http://atechathon.github.io/athonia/latest/" width=100% height=500px class='overview' >
 There is an `iframe` here. It is not visible when viewed on github.com/atechathon. To view, please go to atechathon.github.io. See 'Project Links' just below.
 </iframe>
-_Athonia #1_
+_Athonia #1 in cropped `iframe` view_
 
-2014-05-10 ~ Today there are just some dummy files for testing. Soon there will be some 'real' files'...
+[Athonia live demo full screen (latest)]( http://atechathon.github.io/athonia/latest/ )
+
 
 ## Concept
 
@@ -16,6 +17,7 @@ _Athonia #1_
 <!-- a statement of a rationale, applicable now as well as in the future -->
 
 * A gathering place for designs
+* Building codes from a paraallel universe
 
 ### Vision  
 <!--  a descriptive picture of a desired future state -->
@@ -24,16 +26,18 @@ _Athonia #1_
 
 ## Features
 
-* Follows the TMS system
-* Supports very targe terrains
-* JavaScript loaded only when needed
+* Follows the [Tile Map Service]( http://en.wikipedia.org/wiki/Tile_Map_Service) (TMS) system, used by OpenStreetMap, Geeogle _et al_.
+* Supports very large terrains
+* Each tile load its own JavaScript file, JavaScript loaded only on demand
 * Everything created procedurally
-* Displays identification placards when desired
-* Displays Google satellite view when desired
+* Check box toggles display of identification placards
+* Check box toggles display Google Maps satellite view, default center of world @ Cooper Union
 
 
 ## Road Map
 
+* First person flythrough camera
+* lat/lon entry?
 * callbacks with live action controlled by RAF
 
 ## Issues /Bugs
@@ -81,7 +85,15 @@ This repository contains files that are  at an early and volatile stage. Not all
 
 ### Change Log
 
-2014-05-05 ~ Theo
+2014-05-11 ~ Theo
+
+* Three tiles now have content
+
+2014-05-10 ~ Theo
+
+Today there are just some dummy files for testing. Soon there will be some 'real' files'...
+
+2014-05-09 ~ Theo
 
 * First commit
 
