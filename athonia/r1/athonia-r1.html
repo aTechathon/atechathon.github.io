@@ -71,7 +71,7 @@
 	function letThereBeFirmament() {
 		if ( assets) scene.remove( assets);
 		assets = new THREE.Object3D();
-		msg.innerHTML = '';
+		msg.innerHTML = 'centerX: ' + centerX + ' centerY: ' + centerY + '<br>';
 		var tileX, tileY, map;
 		for ( var x = 0; x < 3; x++ ) {
 			for ( var y = 0; y < 3; y++ ) {
@@ -242,9 +242,6 @@
 				'<a href=JavaScript:getTile("down"); >&#8681;</a>' +
 			'</h1>' +
 			'<hr>' +
-			'<p>' +
-				'More...' +
-			'</p>' +
 			'<div id=msg></div>' +
 		'';
 
@@ -312,6 +309,7 @@
 		event.target.style.top = ( event.clientY - offsetY ) + 'px';
 	}
 
+	function v( x, y, z ){ return new THREE.Vector3( x, y, z ); }
 
 	function animate() {
 		requestAnimationFrame( animate );
