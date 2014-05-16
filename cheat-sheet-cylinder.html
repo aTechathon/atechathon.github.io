@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>Three.js Cheat Sheet #1</title>
+<title>Three.js Cheat Sheet #3 Cylinders</title>
 <meta charset=utf-8 >
 <meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 >
 </head>
@@ -44,18 +44,47 @@
 		scene.add( new THREE.ArrowHelper( v(0, 1, 0), v(0, 0, 0), 30, 0x00cc00) );
 		scene.add( new THREE.ArrowHelper( v(0, 0, 1), v(0, 0, 0), 30, 0x0000cc) );
 
-// Grid Helper
-		scene.add(  new THREE.GridHelper( 50, 10 ) );
 
-// Plane - parameters: width, height, widthSegments, heightSegments 
+// Cylinder - parameters: radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded
 
-		geometry = new THREE.PlaneGeometry( 100, 100, 10, 10 );
-		geometry.applyMatrix( new THREE.Matrix4().makeRotationX( -0.5 * Math.PI ) );
+		geometry = new THREE.CylinderGeometry(  );
 		material = new THREE.MeshNormalMaterial();
 		mesh = new THREE.Mesh( geometry, material );
-		mesh.position.set( 0, -10, 0 );
+		mesh.position.set( -50, 20, -25 );
 		scene.add( mesh );
 
+		geometry = new THREE.CylinderGeometry( 20, 20, 100, 30, 1 );
+		material = new THREE.MeshNormalMaterial( { shading: THREE.SmoothShading } );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( 0, 20, -25 );
+		scene.add( mesh );
+
+		geometry = new THREE.CylinderGeometry( 20, 20, 100, 3, 1 );
+		material = new THREE.MeshNormalMaterial();
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( 50, 20, -25 );
+		scene.add( mesh );
+
+		geometry = new THREE.CylinderGeometry( 0, 20, 20, 3, 1 );
+		material = new THREE.MeshNormalMaterial();
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( -50, 20, 25 );
+		scene.add( mesh );
+
+
+		geometry = new THREE.CylinderGeometry( 0, 20, 20, 4, 1 );
+		material = new THREE.MeshNormalMaterial();
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( 0, 20, 25 );
+		scene.add( mesh );
+
+		geometry = new THREE.CylinderGeometry( 10, 20, 20, 5, 1, 1 );
+		material = new THREE.MeshNormalMaterial( { side: THREE.DoubleSide } );
+		mesh = new THREE.Mesh( geometry, material );
+		mesh.position.set( 50, 20, 25 );
+		scene.add( mesh );
+
+/*
 // Box - parameters: width, height, depth, widthSegments, heightSegments, depthSegments
 
 		geometry = new THREE.BoxGeometry( 10, 20, 30 );
@@ -89,6 +118,8 @@
 		material = new THREE.LineBasicMaterial( { color: 0x000000 } );
 		line = new THREE.Line( geometry, material );
 		scene.add( line );
+
+*/
 
 	}
 

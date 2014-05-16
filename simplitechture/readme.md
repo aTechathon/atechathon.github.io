@@ -8,10 +8,28 @@ There is an `iframe` here. It is not visible when viewed on github.com/atechatho
 </iframe>
 _Simplitechture #1_
 
+
+## Simplitechture #8
+  
+[Simplitechture #8]( http://atechathon.github.io/simplitechture/simplitechture-08.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-08.html )
+
+## Simplitechture #7
+
+[Simplitechture #7]( http://atechathon.github.io/simplitechture/simplitechture-07.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-07.html )
+
+
+## Simplitechture #6
+
+[Simplitechture #6]( http://atechathon.github.io/simplitechture/simplitechture-06.html )  
+[Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-06.html )
+
+
 ## Simplitechture #5
 
 Walls and floors that come and go precipitously:  
-[Simplitechture #4 ~ Nerbous = NURBS + nervous ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-05-nerbous.html )  
+[Simplitechture #5 ~ Nerbous = NURBS + nervous ~ full screen demo]( http://atechathon.github.io/simplitechture/simplitechture-05-nerbous.html )  
 [Source code]( https://github.com/aTechathon/atechathon.github.io/blob/master/simplitechture/simplitechture-05-nerbous.html )
 
 [Tumblr]( http://atechathon.tumblr.com/post/85389983296/simplitechture-5-nerbous-nurbs-nervous  )
