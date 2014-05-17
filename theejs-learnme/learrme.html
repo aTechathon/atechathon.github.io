@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8 >
+<title>learn me</title>
+</head>
+<body>
+<script>
+
+	init();
+	animate();
+
+	function init() {
+		info = document.body.appendChild( document.createElement( 'div' ) );
+
+		info.style.cssText = 'left: 20px; position: absolute; top: 0px; width: 100% ';
+		info.innerHTML = '<h1>' + document.title + '<h1>' +
+
+			'<p>A fun thing to learn is that Mr.doob has fun learning things,</p>' +
+			'<p><a href=http://www.mrdoob.com/projects/htmleditor/>HTML Editor</a></p>' +
+			'<div id=msg>' +			
+			'</div>';
+			
+	}		
+</script>
+
+</body>
+</html>
