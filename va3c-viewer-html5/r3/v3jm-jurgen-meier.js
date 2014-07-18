@@ -63,8 +63,8 @@
 		V3JM.ifr.onload = function() {
 
 			app = V3JM.ifr.contentWindow;
-//			JA.body = V3JM.ifr.contentDocument;
-//			JAPR.setRandomGradient();
+			JA.body = V3JM.ifr.contentDocument;
+			JAPR.setRandomGradient();
 
 			THREE = app.THREE;
 			JATH.renderer = app.renderer;
@@ -92,7 +92,7 @@
 			divMsg4.style.cssText += 'font-size: small; width: 300px;';
 			divMsg4.innerText = app.curve;
 
-			ASCO.updateControlsTab( number );
+			V3CO.updateControlsTab( number );
 		};
 		V3JM.ifr.src = fname;
 	};
