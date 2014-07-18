@@ -108,7 +108,7 @@
 	};
 
 	JAPR.setRandomGradient = function() {
-		JAPR.cssBackround = JA.body.appendChild( document.createElement('style') );
+		JAPR.cssBackround = V3JM.ifr.contentDocument.body.appendChild( document.createElement('style') );
 		var col1 = "#" + Math.random().toString(16).slice(2, 8);
 		var col2 = "#" + Math.random().toString(16).slice(2, 8);
 		var col3 = "#" + Math.random().toString(16).slice(2, 8);
@@ -125,11 +125,11 @@
 	};
 
 	JAPR.randomColor = function() {
-		JAPR.cssBackround = ASFR.ifr.contentDocument.body.appendChild( document.createElement('style') );
+		JAPR.cssBackround = V3JM.ifr.contentDocument.body.appendChild( document.createElement('style') );
 		JAPR.cssBackround.innerText = 'body { background-color: #' + Math.random().toString(16).slice(2, 8) + '; }';
 	};
 
 	JAPR.selectColor = function() {
-		JAPR.cssBackround = ASFR.ifr.contentDocument.body.appendChild( document.createElement('style') );
+		JAPR.cssBackround = V3JM.ifr.contentDocument.body.appendChild( document.createElement('style') );
 		JAPR.cssBackround.innerText = 'body { background-color: ' + selColor.value + '; }';
 	}
