@@ -53,7 +53,7 @@
 		JA.libraries = JA.menu.appendChild( document.createElement( 'div' ) );
 		JA.libraries.style.cssText = 'cursor: auto; display: none; ' ;
 		JA.libraries.innerHTML =
-			'<h4><input type=checkbox id=chkMeier onchange=JA.toggleTab(V3CO.controlsTab.parentElement);JA.toggleTab(V3FR.FileReader.parentElement); > Jurgen Meier Gallery</h4>' +
+			'<h4><input type=checkbox id=chkMeier onchange=JA.toggleTab(V3CO.controlsTab.parentElement);JA.toggleTab(V3JM.JurgenMeier.parentElement); > Jurgen Meier Gallery</h4>' +
 			'<p>170+ Parametric equations that create 3D objects</p>' +
 
 			'<h4><input type=checkbox id=chkGeometry onchange=JA.toggleTab(JAGE.geometryTab.parentElement); > Geometry</h4>' +
