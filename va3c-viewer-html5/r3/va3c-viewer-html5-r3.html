@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang=en >
+<head>
+<title>vA3C ViewerR3</title>
+<meta charset=utf-8 />
+<meta name=viewport content=width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0 />
+<link rel=stylesheet href=http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css /><!-- http://fontawesome.io/ -->
+</head>
+<body>
+<script src=ja-core.js></script>
+<script src=v3fr-file-reader.js></script>
+<script src=v3co-controls.js></script>
+<script src=jali-lights.js></script>
+<script src=jama-materials.js></script>
+<script src=jama-materials-data.js></script>
+<script src=jage-geometry.js></script>
+<script src=japr-preferences.js></script>
+<script src=jath-three.js></script>
+<script>
+// Theo Armour ~ 2014-07-17 ~ MIT License
+
+	JA.init = function() {
+		JA.container = document.body.appendChild( document.createElement( 'div' ) );
+
+		JA.addCSS();
+		JA.addMenu();
+		JA.addHR();
+
+		JA.addLibrariesTab();
+		V3FR.addFileReaderTab();
+		V3CO.addControlsTab();
+		JAMA.addMaterialSelectTab();
+		JAMA.addMaterialEditorTab();
+		JAPR.addPreferencesBox();
+		JALI.addLightsBox ();
+		JAGE.addGeometryTab();
+
+		JA.addAboutTab();
+		JA.addMessageArea();
+		JA.addThreeFooter();
+
+		V3FR.init();
+
+		window.addEventListener( 'mouseup', JA.mouseUp, false);
+		window.addEventListener( 'resize', JA.onWindowResize, false );
+	}
+
+	JA.init();
+
+</script>
+</body>
+</html>

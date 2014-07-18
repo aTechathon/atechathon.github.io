@@ -65,13 +65,13 @@
 		scene.add( light );
 
 // Ground plane
-		material = new THREE.MeshBasicMaterial( {color: Math.random() * 0xffffff } );
+		material = new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
 		geometry = new THREE.BoxGeometry( 800, 600, 2000 );
 		mesh = new THREE.Mesh( geometry, material );
 		mesh.position.y = -600;
 		scene.add( mesh );
 		scene.add( new THREE.WireframeHelper( mesh ) );
-		scene.add( mesh );
+//		scene.add( mesh );
 
 		addNURBS( 0, 0, 0 );
 		addNURBS( 100, 0, 400 );
