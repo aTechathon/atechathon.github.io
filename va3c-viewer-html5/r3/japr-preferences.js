@@ -92,8 +92,6 @@
 		};
 	};
 
-
-
 //		scene.add( new THREE.FaceNormalsHelper( mesh, -50, col ) );
 
 	JAPR.updateBackground = function( id ) {

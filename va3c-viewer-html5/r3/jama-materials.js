@@ -1,6 +1,6 @@
 	JAMA = {} || JAMA;
 
-	JAMA.basePath = '../../../../../';
+	JAMA.basePath = 'http://atechathon.github.io/algesurf/';
 
 	JAMA.addMaterialSelectTab = function() {
 
