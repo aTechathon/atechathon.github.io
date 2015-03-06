@@ -35,6 +35,9 @@ Mostapha Roudsari, Ashley Reed, Anne Waelkens, Jim Quanci, Elcin Ertugrul, Amir 
 
 
 ## Road Map
+
+* Add your own controllers
+* Edit background color
 * Add ability to open older JSON files
 * Add skybox
 
