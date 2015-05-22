@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang=en >
 <head>
-<title>simplitecture #5 ~ Nerbous = NURBS + nervous</title>
+<title>simplitecture #5a ~ Nerbous = NURBS + nervous</title>
 <meta charset=utf-8 />
 <meta name=author content='Theo Armour' />
 </head>
 <body>
 <script src=http://mrdoob.github.com/three.js/build/three.min.js ></script>
-<script src=http://mrdoob.github.com/three.js/examples/js/controls/TrackballControls.js ></script>
+<script src=http://mrdoob.github.com/three.js/examples/js/controls/OrbitControls.js ></script>
 <script src=http://mrdoob.github.com/three.js/examples/js/libs/stats.min.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/curves/NURBSCurve.js ></script>
 <script src=http://mrdoob.github.io/three.js/examples/js/curves/NURBSSurface.js ></script>
@@ -50,7 +50,7 @@
 
 		camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 5000 );
 		camera.position.set( 500, 500, 500 );
-		controls = new THREE.TrackballControls( camera, renderer.domElement );
+		controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 		stats = new Stats();
 		stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; zIndex: 100; ';
