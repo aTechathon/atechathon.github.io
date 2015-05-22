@@ -3,6 +3,7 @@
 <head>
 <title>simplitecture #5a ~ Nerbous = NURBS + nervous</title>
 <meta charset=utf-8 />
+<meta name=viewport content='width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0' />
 <meta name=author content='Theo Armour' />
 </head>
 <body>
@@ -77,6 +78,20 @@
 		addNURBS( 100, 0, 400 );
 		addNURBS( 50, 0, 0 );
 		addNURBS( -100, 0, -400 );
+
+		window.addEventListener( 'resize', onWindowResize, false );
+
+	}
+
+	function onWindowResize() {
+
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize( window.innerWidth, window.innerHeight );
+
+		controls.handleResize();
+
 	}
 
 	function addNURBS( x, y, z) {
